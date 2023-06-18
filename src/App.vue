@@ -4,15 +4,26 @@ import { RouterLink, RouterView } from 'vue-router'
 
 <template>
   <header>
-    <div>
-      <nav>
-        <RouterLink to="/">Календарь</RouterLink>
-        <RouterLink to="/list">Список</RouterLink>
-      </nav>
+    <nav class="navbar">
+    <div class="container-fluid">
+        <RouterLink to="/" class="btn align-middle btn-outline-secondary">Календарь</RouterLink>
+        <RouterLink to="/list" class="btn align-middle btn-outline-secondary">Список</RouterLink>
     </div>
+    </nav>
   </header>
 
   <RouterView />
 </template>
 
-<style scoped></style>
+<style scoped>
+  nav {
+    max-width: 15rem;
+    margin: 2rem auto;
+  }
+  .container-fluid {
+    justify-content: center;
+  }
+  .btn{
+    border-radius: unset;
+  }
+</style>
