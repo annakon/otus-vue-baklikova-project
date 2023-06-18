@@ -1,5 +1,14 @@
-<template>"home"</template>
+<template>
+  <h1>{{month}}</h1>
+</template>
 
-<script setup></script>
+<script setup>
+const date = new Date();
+const month = date.toLocaleString('default', { month: 'long' });
+</script>
 
-<style scoped></style>
+<style scoped>
+h1{
+  text-align: center;
+}
+</style>

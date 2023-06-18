@@ -6,8 +6,8 @@ import { RouterLink, RouterView } from 'vue-router'
   <header>
     <nav class="navbar">
     <div class="container-fluid">
-        <RouterLink to="/" class="btn align-middle btn-outline-secondary">Календарь</RouterLink>
-        <RouterLink to="/list" class="btn align-middle btn-outline-secondary">Список</RouterLink>
+        <RouterLink to="/" class="btn align-middle btn-outline-dark">Календарь</RouterLink>
+        <RouterLink to="/list" class="btn align-middle btn-outline-dark">Список</RouterLink>
     </div>
     </nav>
   </header>
