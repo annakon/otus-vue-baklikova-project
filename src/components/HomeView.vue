@@ -1,7 +1,7 @@
 <template>
   <h1>{{month}}</h1>
   <div class="wrapper">
-    <div v-for="item in ['ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ', 'ВС']">{{item}}</div>
+    <div class="inner" v-for="item in ['ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ', 'ВС']">{{item}}</div>
   </div>
 </template>
 
@@ -17,5 +17,9 @@ h1{
 .wrapper {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
+  margin: 2rem;
+}
+.inner {
+  border: 1px solid;
 }
 </style>
