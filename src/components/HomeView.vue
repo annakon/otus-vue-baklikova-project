@@ -1,36 +1,28 @@
 <template>
-  <h1>{{month}}</h1>
+  <h1>{{ month }}</h1>
   <div class="wrapper">
     <div class="dayHeader" v-for="item in ['ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ', 'ВС']">
-      <h6>{{item}}</h6>
+      <h6>{{ item }}</h6>
     </div>
     <div v-for="n in otstup"></div>
-    <div class="inner" v-for="n in col"> {{ n }} </div>
+    <div class="inner" v-for="n in col">{{ n }}</div>
   </div>
 </template>
 
 <script setup>
-const date = new Date();
-const month = date.toLocaleString('default', { month: 'long' });
-const col=howMuchDays(date.getFullYear(),date.getMonth());
-const otstup=getWeekDay(new Date(date.getFullYear(), date.getMonth(), 1));
-
-function howMuchDays ( year , month) {
-
-  let date1 = new Date(year, month-1, 1);
-  let date2 = new Date(year, month, 1);
-  return Math.round((date2 - date1) / 1000 / 3600 / 24);
-
-}
+const date = new Date()
+const month = date.toLocaleString('default', { month: 'long' })
+const col = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate()
+const otstup = getWeekDay(new Date(date.getFullYear(), date.getMonth(), 1))
 function getWeekDay(date) {
-  let days = [6, 0, 1, 2, 3, 4, 5];
+  let days = [6, 0, 1, 2, 3, 4, 5]
 
-  return days[date.getDay()];
+  return days[date.getDay()]
 }
 </script>
 
 <style scoped>
-h1{
+h1 {
   text-align: center;
 }
 .wrapper {

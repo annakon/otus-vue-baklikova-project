@@ -5,10 +5,10 @@ import { RouterLink, RouterView } from 'vue-router'
 <template>
   <header>
     <nav class="navbar">
-    <div class="container-fluid">
+      <div class="container-fluid">
         <RouterLink to="/" class="btn align-middle btn-outline-dark">Календарь</RouterLink>
         <RouterLink to="/list" class="btn align-middle btn-outline-dark">Список</RouterLink>
-    </div>
+      </div>
     </nav>
   </header>
 
@@ -16,14 +16,14 @@ import { RouterLink, RouterView } from 'vue-router'
 </template>
 
 <style scoped>
-  nav {
-    max-width: 15rem;
-    margin: 2rem auto;
-  }
-  .container-fluid {
-    justify-content: center;
-  }
-  .btn{
-    border-radius: unset;
-  }
+nav {
+  max-width: 15rem;
+  margin: 2rem auto;
+}
+.container-fluid {
+  justify-content: center;
+}
+.btn {
+  border-radius: unset;
+}
 </style>
