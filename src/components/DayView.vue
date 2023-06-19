@@ -13,5 +13,12 @@ const  shortdate=date.toLocaleString('default',{year: "numeric", month: "long", 
 </script>
 
 <style scoped>
-
+  .card {
+    max-width: 36rem;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  h5 {
+    text-align: center;
+  }
 </style>
