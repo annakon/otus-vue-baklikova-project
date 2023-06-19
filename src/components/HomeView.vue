@@ -1,5 +1,13 @@
 <template>
   <h1>{{ month }}</h1>
+  <div class="arrow">
+    <router-link to="/">
+      <img src="../assets/sim-arrow-left.png" alt="arrow-left">
+    </router-link>
+    <router-link to="/">
+      <img src="../assets/sim-arrow-right.png" alt="arrow-right">
+    </router-link>
+  </div>
   <div class="wrapper">
     <div class="dayHeader" v-for="item in ['ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ', 'ВС']">
       <h6>{{ item }}</h6>
@@ -28,7 +36,7 @@ h1 {
 .wrapper {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  margin: 2rem;
+  margin: 0 2rem 0 2rem;
 }
 .inner {
   border: 1px solid;
@@ -39,5 +47,14 @@ h1 {
   border: 2px solid;
   text-align: center;
   padding: 0.5rem;
+}
+.arrow {
+  display: flex;
+  flex-wrap: nowrap;
+  margin: 0 2rem 0 2rem;
+  justify-content: space-between;
+}
+img {
+  max-width: 3rem;
 }
 </style>
