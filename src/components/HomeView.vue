@@ -1,12 +1,12 @@
 <template>
-  <h1>{{ month }}</h1>
-  <div class="arrow">
-    <router-link to="/">
+  <h1>{{ month + " " + year}}</h1>
+  <div class="arrow" >
+    <a href="#" @click="dateChange(-1);">
       <img src="../assets/sim-arrow-left.png" alt="arrow-left">
-    </router-link>
-    <router-link to="/">
+    </a>
+    <a href="#" @click="dateChange(1);">
       <img src="../assets/sim-arrow-right.png" alt="arrow-right">
-    </router-link>
+    </a>
   </div>
   <div class="wrapper">
     <div class="dayHeader" v-for="item in ['ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ', 'ВС']">
@@ -18,14 +18,20 @@
 </template>
 
 <script setup>
-const date = new Date()
-const month = date.toLocaleString('default', { month: 'long' })
-const col = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate()
-const otstup = getWeekDay(new Date(date.getFullYear(), date.getMonth(), 1))
+import {computed, ref} from "vue";
+
+const date = ref(new Date());
+const month = computed(() =>date.value.toLocaleString('default', { month: 'long' }));
+const year = computed(()=>date.value.getFullYear());
+const col = computed(() =>new Date(date.value.getFullYear(), date.value.getMonth() + 1, 0).getDate());
+const otstup = computed(() =>getWeekDay(new Date(date.value.getFullYear(), date.value.getMonth(), 1)));
 function getWeekDay(date) {
   let days = [6, 0, 1, 2, 3, 4, 5]
 
   return days[date.getDay()]
+}
+function dateChange(num) {
+  date.value=new Date(date.value.getFullYear(), date.value.getMonth() + num, date.value.getDay());
 }
 </script>
 
