@@ -13,7 +13,11 @@
       <h6>{{ item }}</h6>
     </div>
     <div v-for="n in otstup"></div>
-    <div class="inner" v-for="n in col">{{ n }}</div>
+    <div class="inner" v-for="n in col">
+      <router-link :to="{ name: 'day', params: { date: date }}">
+      {{ n }}
+      </router-link>
+    </div>
   </div>
 </template>
 

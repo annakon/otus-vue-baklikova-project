@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../components/HomeView.vue'
 import ListView from '../components/ListView.vue'
+import DayView from  '../components/DayView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -14,6 +15,12 @@ const router = createRouter({
       path: '/list',
       name: 'list',
       component: ListView
+    },
+    {
+      path: '/day/:date',
+      name: 'day',
+      props: true,
+      component: DayView
     }
   ]
 })
