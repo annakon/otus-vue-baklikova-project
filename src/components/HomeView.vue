@@ -4,7 +4,8 @@
     <div class="dayHeader" v-for="item in ['ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ', 'ВС']">
       <h6>{{item}}</h6>
     </div>
-    <div class="inner" v-for="n in col">{{ n }} </div>
+    <div v-for="n in otstup"></div>
+    <div class="inner" v-for="n in col"> {{ n }} </div>
   </div>
 </template>
 
@@ -12,12 +13,19 @@
 const date = new Date();
 const month = date.toLocaleString('default', { month: 'long' });
 const col=howMuchDays(date.getFullYear(),date.getMonth());
+const otstup=getWeekDay(new Date(date.getFullYear(), date.getMonth(), 1));
+
 function howMuchDays ( year , month) {
 
   let date1 = new Date(year, month-1, 1);
   let date2 = new Date(year, month, 1);
   return Math.round((date2 - date1) / 1000 / 3600 / 24);
 
+}
+function getWeekDay(date) {
+  let days = [6, 0, 1, 2, 3, 4, 5];
+
+  return days[date.getDay()];
 }
 </script>
 
