@@ -14,7 +14,7 @@
     </div>
     <div v-for="n in otstup"></div>
     <div class="inner" v-for="n in col">
-      <router-link :to="{ name: 'day', params: { date: date }}">
+      <router-link :to="{ name: 'day', params: { day: n, month: numMonth, year: year }}">
       {{ n }}
       </router-link>
     </div>
@@ -26,6 +26,7 @@ import {computed, ref} from "vue";
 
 const date = ref(new Date());
 const month = computed(() =>date.value.toLocaleString('default', { month: 'long' }));
+const numMonth = computed(()=>date.value.getMonth());
 const year = computed(()=>date.value.getFullYear());
 const col = computed(() =>new Date(date.value.getFullYear(), date.value.getMonth() + 1, 0).getDate());
 const otstup = computed(() =>getWeekDay(new Date(date.value.getFullYear(), date.value.getMonth(), 1)));

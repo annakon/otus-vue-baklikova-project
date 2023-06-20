@@ -17,7 +17,7 @@ const router = createRouter({
       component: ListView
     },
     {
-      path: '/day/:date',
+      path: '/day/:day/:month/:year',
       name: 'day',
       props: true,
       component: DayView
