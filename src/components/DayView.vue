@@ -3,7 +3,7 @@
     <div class="card-body">
       <h5 class="card-title">{{ shortdate }}</h5>
     </div>
-    <router-link :to="{ name: 'add', params: { day: shortdate } }" class="card-link">
+    <router-link :to="{ name: 'add', params: { day: date } }" class="btn btn-primary">
       Добавить задачу
     </router-link>
   </div>
