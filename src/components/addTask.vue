@@ -47,7 +47,7 @@ import {ref} from "vue";
   function  addTask(){
     let date = new Date(day.value);
     storeTask.addToTasks(date,time,description);
-    router.push({ name: 'day', params: { day: 5, month: 3, year: 2010 } });
+    router.push({ name: 'day', params: { day: date.getDate(), month: date.getMonth(), year: date.getFullYear() } });
   }
 </script>
 
