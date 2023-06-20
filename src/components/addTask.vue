@@ -41,7 +41,7 @@ const storeTask = useTasksStore();
 const router = useRouter();
 function addTask() {
   let date = new Date(day.value);
-  storeTask.addToTasks(date, time, description);
+  storeTask.addToTasks(date, time.value, description.value);
   router.push({
     name: 'day',
     params: { day: date.getDate(), month: date.getMonth(), year: date.getFullYear() }

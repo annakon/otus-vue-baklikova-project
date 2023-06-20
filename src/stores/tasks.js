@@ -9,7 +9,7 @@ export const useTasksStore = defineStore('task', () => {
   }
 
   function findByDate(date) {
-    return tasks.find((i) => i.date.toDateString() === date.toDateString());
+    return tasks.filter((i) => i.date.toDateString() === date.toDateString());
   }
 
   return { tasks, addToTasks, findByDate };
