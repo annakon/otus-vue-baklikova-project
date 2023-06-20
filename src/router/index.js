@@ -1,8 +1,8 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../components/HomeView.vue'
-import ListView from '../components/ListView.vue'
-import DayView from '../components/DayView.vue'
-import addTask from '../components/addTask.vue'
+import { createRouter, createWebHistory } from 'vue-router';
+import HomeView from '../components/HomeView.vue';
+import ListView from '../components/ListView.vue';
+import DayView from '../components/DayView.vue';
+import addTask from '../components/addTask.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -30,6 +30,6 @@ const router = createRouter({
       component: addTask
     }
   ]
-})
+});
 
-export default router
+export default router;

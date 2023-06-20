@@ -22,25 +22,25 @@
 </template>
 
 <script setup>
-import { computed, ref } from 'vue'
+import { computed, ref } from 'vue';
 
-const date = ref(new Date())
-const month = computed(() => date.value.toLocaleString('default', { month: 'long' }))
-const numMonth = computed(() => date.value.getMonth())
-const year = computed(() => date.value.getFullYear())
+const date = ref(new Date());
+const month = computed(() => date.value.toLocaleString('default', { month: 'long' }));
+const numMonth = computed(() => date.value.getMonth());
+const year = computed(() => date.value.getFullYear());
 const col = computed(() =>
   new Date(date.value.getFullYear(), date.value.getMonth() + 1, 0).getDate()
-)
+);
 const otstup = computed(() =>
   getWeekDay(new Date(date.value.getFullYear(), date.value.getMonth(), 1))
-)
+);
 function getWeekDay(date) {
-  let days = [6, 0, 1, 2, 3, 4, 5]
+  let days = [6, 0, 1, 2, 3, 4, 5];
 
-  return days[date.getDay()]
+  return days[date.getDay()];
 }
 function dateChange(num) {
-  date.value = new Date(date.value.getFullYear(), date.value.getMonth() + num, date.value.getDay())
+  date.value = new Date(date.value.getFullYear(), date.value.getMonth() + num, date.value.getDay());
 }
 </script>
 

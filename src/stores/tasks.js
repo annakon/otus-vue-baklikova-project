@@ -1,16 +1,16 @@
-import {reactive} from 'vue'
-import { defineStore } from 'pinia'
+import { reactive } from 'vue';
+import { defineStore } from 'pinia';
 
 export const useTasksStore = defineStore('task', () => {
   const tasks = reactive([]);
 
-  function addToTasks(date,time,description){
-     tasks.push({date, time, description});
+  function addToTasks(date, time, description) {
+    tasks.push({ date, time, description });
   }
 
-    function findByDate(date) {
-        return tasks.find((i) => i.date.toDateString() === date.toDateString());
-    }
+  function findByDate(date) {
+    return tasks.find((i) => i.date.toDateString() === date.toDateString());
+  }
 
-  return { tasks, addToTasks, findByDate }
-})
+  return { tasks, addToTasks, findByDate };
+});
