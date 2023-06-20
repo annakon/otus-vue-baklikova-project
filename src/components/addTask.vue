@@ -5,6 +5,10 @@
       <input type="date" class="form-control" id="date" v-model="day">
     </div>
     <div class="mb-3">
+      <label  class="form-label" for="appt">Время</label>
+      <input class="form-control" type="time" id="appt">
+    </div>
+    <div class="mb-3">
       <label for="description" class="form-label">Описание</label>
       <textarea class="form-control" id="description" rows="3"></textarea>
     </div>
