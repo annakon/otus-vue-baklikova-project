@@ -3,9 +3,13 @@
     <div class="card-body">
       <h5 class="card-title">{{ shortdate }}</h5>
     </div>
-    <div v-for="oneTask in taskDay">
-      {{ oneTask.time }}
-    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item" v-for="oneTask in taskDay">
+        <div class="taskContainer">
+           <div>{{ oneTask.time }}</div>  <div>{{ oneTask.description }}</div>
+        </div>
+      </li>
+    </ul>
     <router-link :to="{ name: 'add', params: { day: date } }" class="btn btn-primary">
       Добавить задачу
     </router-link>
@@ -28,11 +32,18 @@ const taskDay = storeTask.findByDate(date);
 
 <style scoped>
 .card {
-  max-width: 36rem;
+  max-width: 24rem;
   margin-right: auto;
   margin-left: auto;
 }
 h5 {
   text-align: center;
+}
+span {
+  text-align: right;
+}
+.taskContainer {
+  display: grid;
+  grid-template-columns: 1fr 3fr
 }
 </style>
