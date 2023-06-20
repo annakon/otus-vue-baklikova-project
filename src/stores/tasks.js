@@ -5,12 +5,12 @@ export const useTasksStore = defineStore('task', () => {
   const tasks = reactive([]);
 
   function addToTasks(date,time,description){
-     tasks.push({date: date, description: description});
+     tasks.push({date, time, description});
   }
 
     function findByDate(date) {
         return tasks.find((i) => i.date.toDateString() === date.toDateString());
     }
 
-  return { tasks }
+  return { tasks, addToTasks, findByDate }
 })

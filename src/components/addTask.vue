@@ -6,17 +6,27 @@
     </div>
     <div class="mb-3">
       <label  class="form-label" for="appt">Время</label>
-      <input class="form-control" type="time" id="appt">
+      <input class="form-control" type="time" id="appt" v-model="time">
     </div>
     <div class="mb-3">
       <label for="description" class="form-label">Описание</label>
-      <textarea class="form-control" id="description" rows="3"></textarea>
+      <textarea class="form-control" id="description" rows="3" v-model="description"></textarea>
+    </div>
+    <div class="mb-3">
+      <button
+          @click="addTask"
+          class="btn btn-primary"
+          type="button">
+        Добавить
+      </button>
     </div>
   </form>
 </template>
 
 <script setup>
-  import {ref} from "vue";
+import {ref} from "vue";
+  import {useTasksStore} from "@/stores/tasks";
+  import {useRouter} from "vue-router";
   function addZero(num) {
     if (num >= 0 && num <= 9) {
       return '0' + num;
@@ -29,7 +39,16 @@
   const data = new Date(props.day);
   const day=ref(addZero(data.getFullYear()) + '-' +
       addZero(data.getMonth() + 1) + '-' +
-      addZero(data.getDate()))
+      addZero(data.getDate()));
+  const time = ref('18:00');
+  const description= ref('');
+  const storeTask = useTasksStore();
+  const router = useRouter();
+  function  addTask(){
+    let date = new Date(day.value);
+    storeTask.addToTasks(date,time,description);
+    router.push({ name: 'day', params: { day: 5, month: 3, year: 2010 } });
+  }
 </script>
 
 <style scoped>
