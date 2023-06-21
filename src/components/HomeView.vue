@@ -91,6 +91,6 @@ img {
   max-width: 3rem;
 }
 .hasTask {
-  background-color: rgb(223,243,249);
+  background-color: rgb(232,238,251);
 }
 </style>
