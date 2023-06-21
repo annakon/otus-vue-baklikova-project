@@ -14,15 +14,23 @@
     </div>
     <div v-for="n in otstup"></div>
     <div class="inner" v-for="n in col">
-      <router-link :to="{ name: 'day', params: { day: n, month: numMonth, year: year } }">
-        {{ n }}
-      </router-link>
+      <div v-if="hasTask[n]">
+         <router-link :to="{ name: 'day', params: { day: n, month: numMonth, year: year } }" class="hasTask">
+           {{ n }}
+         </router-link>
+      </div>
+      <div v-else>
+        <router-link :to="{ name: 'day', params: { day: n, month: numMonth, year: year } }">
+          {{ n }}
+        </router-link>
+      </div>
     </div>
   </div>
 </template>
 
 <script setup>
 import { computed, ref } from 'vue';
+import {useTasksStore} from "@/stores/tasks";
 
 const date = ref(new Date());
 const month = computed(() => date.value.toLocaleString('default', { month: 'long' }));
@@ -34,6 +42,15 @@ const col = computed(() =>
 const otstup = computed(() =>
   getWeekDay(new Date(date.value.getFullYear(), date.value.getMonth(), 1))
 );
+const storeTask = useTasksStore();
+const hasTask = computed(()=>{
+  let res=[];
+  for(let i=1;i<=col.value;i++) {
+    res.push(storeTask.findByDate(new Date(date.value.getFullYear(), date.value.getMonth(),i)).length>0);
+  }
+  return res;
+});
+console.log(hasTask);
 function getWeekDay(date) {
   let days = [6, 0, 1, 2, 3, 4, 5];
 
@@ -71,5 +88,8 @@ h1 {
 }
 img {
   max-width: 3rem;
+}
+.hasTask {
+  background-color: lightskyblue;
 }
 </style>
