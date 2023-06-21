@@ -14,7 +14,7 @@
     </div>
     <div v-for="n in otstup"></div>
     <div class="inner" v-for="n in col">
-      <div class="inner2 hasTask" v-if="hasTask[n]">
+      <div class="inner2 hasTask" v-if="hasTask[n-1]">
          <router-link :to="{ name: 'day', params: { day: n, month: numMonth, year: year } }">
            {{ n }}
          </router-link>
