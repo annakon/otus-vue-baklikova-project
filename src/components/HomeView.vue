@@ -14,12 +14,12 @@
     </div>
     <div v-for="n in otstup"></div>
     <div class="inner" v-for="n in col">
-      <div v-if="hasTask[n]">
-         <router-link :to="{ name: 'day', params: { day: n, month: numMonth, year: year } }" class="hasTask">
+      <div class="inner2 hasTask" v-if="hasTask[n]">
+         <router-link :to="{ name: 'day', params: { day: n, month: numMonth, year: year } }">
            {{ n }}
          </router-link>
       </div>
-      <div v-else>
+      <div class="inner2" v-else>
         <router-link :to="{ name: 'day', params: { day: n, month: numMonth, year: year } }">
           {{ n }}
         </router-link>
@@ -50,7 +50,6 @@ const hasTask = computed(()=>{
   }
   return res;
 });
-console.log(hasTask);
 function getWeekDay(date) {
   let days = [6, 0, 1, 2, 3, 4, 5];
 
@@ -73,7 +72,9 @@ h1 {
 .inner {
   border: 1px solid;
   text-align: center;
-  padding: 1rem;
+}
+.inner2 {
+ padding: 1rem;
 }
 .dayHeader {
   border: 2px solid;
@@ -90,6 +91,6 @@ img {
   max-width: 3rem;
 }
 .hasTask {
-  background-color: lightskyblue;
+  background-color: rgb(223,243,249);
 }
 </style>
