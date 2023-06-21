@@ -39,9 +39,6 @@ const taskDay = storeTask.findByDate(date);
 h5 {
   text-align: center;
 }
-span {
-  text-align: right;
-}
 .taskContainer {
   display: grid;
   grid-template-columns: 1fr 3fr
