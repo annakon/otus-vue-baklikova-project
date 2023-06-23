@@ -6,7 +6,8 @@
     <ul class="list-group list-group-flush">
       <li class="list-group-item" v-for="oneTask in taskDay">
         <div class="taskContainer">
-           <div>{{ oneTask.time }}</div>  <div>{{ oneTask.description }}</div>
+          <div>{{ oneTask.time }}</div>
+          <div>{{ oneTask.description }}</div>
         </div>
       </li>
     </ul>
@@ -41,6 +42,6 @@ h5 {
 }
 .taskContainer {
   display: grid;
-  grid-template-columns: 1fr 3fr
+  grid-template-columns: 1fr 3fr;
 }
 </style>

@@ -1,24 +1,30 @@
 <template>
   <div class="main-container">
-  <ul class="list-group">
-    <li class="list-group-item" v-for="oneTask in storeTask.tasks">
-      <div class="taskContainer">
-        <div>
-          <input type="checkbox" value="" id="flexCheckDefault">
+    <ul class="list-group">
+      <li class="list-group-item" v-for="oneTask in storeTask.tasks">
+        <div class="taskContainer">
+          <div>
+            <input type="checkbox" />
+          </div>
+          <div>
+            {{
+              oneTask.date.toLocaleString('default', {
+                year: 'numeric',
+                month: 'numeric',
+                day: 'numeric'
+              })
+            }}
+            {{ oneTask.time }}
+          </div>
+          <div>{{ oneTask.description }}</div>
         </div>
-        <div>{{ oneTask.date.toLocaleString('default', {
-          year: 'numeric',
-          month: 'numeric',
-          day: 'numeric'
-        }) }} {{ oneTask.time }}</div>  <div>{{ oneTask.description }}</div>
-      </div>
-    </li>
-  </ul>
+      </li>
+    </ul>
   </div>
 </template>
 
 <script setup>
-import {useTasksStore} from "@/stores/tasks";
+import { useTasksStore } from '@/stores/tasks';
 
 const storeTask = useTasksStore();
 </script>
