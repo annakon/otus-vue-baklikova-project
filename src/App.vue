@@ -1,5 +1,11 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router';
+import {onMounted} from "vue";
+import { useTasksStore } from '@/stores/tasks';
+const storeTask = useTasksStore();
+onMounted(()=> {
+  storeTask.updateCartFromLocalStorage();
+})
 </script>
 
 <template>
