@@ -25,5 +25,5 @@ export const useTasksStore = defineStore('task', () => {
     return tasks.filter((i) => i.date.toDateString() === date.toDateString());
   }
 
-  return { tasks, addToTasks, findByDate, updateCartFromLocalStorage };
+  return { tasks, addToTasks, findByDate, updateCartFromLocalStorage, updateLocalStorage };
 });
