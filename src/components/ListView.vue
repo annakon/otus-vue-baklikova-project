@@ -4,7 +4,7 @@
       <li class="list-group-item" v-for="oneTask in storeTask.tasks">
         <div class="taskContainer">
           <div>
-            <input type="checkbox" />
+            <input type="checkbox" v-model="oneTask.isCompleted"/>
           </div>
           <div>
             {{
