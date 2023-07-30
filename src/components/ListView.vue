@@ -1,5 +1,11 @@
 <template>
   <div class="main-container">
+    <div class="form-check plusmargin">
+      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+      <label class="form-check-label" for="flexCheckDefault">
+        только неисполненные
+      </label>
+    </div>
     <ul class="list-group">
       <li class="list-group-item" v-for="oneTask in storeTask.tasks">
         <div class="taskContainer">
@@ -36,5 +42,8 @@ const storeTask = useTasksStore();
   max-width: 30rem;
   margin-right: auto;
   margin-left: auto;
+}
+.plusmargin {
+  margin: 1rem;
 }
 </style>
