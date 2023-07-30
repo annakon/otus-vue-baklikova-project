@@ -1,7 +1,7 @@
 <template>
   <div class="main-container">
     <div class="form-check plusmargin">
-      <input class="form-check-input" type="checkbox" value="false" id="flexCheckDefault" v-model="storeTask.filter">
+      <input class="form-check-input" type="checkbox" id="flexCheckDefault" v-model="storeTask.filter">
       <label class="form-check-label" for="flexCheckDefault">
         только неисполненные
       </label>
