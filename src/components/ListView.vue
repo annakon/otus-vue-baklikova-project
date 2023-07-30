@@ -3,9 +3,7 @@
     <ul class="list-group">
       <li class="list-group-item" v-for="oneTask in storeTask.tasks">
         <div class="taskContainer">
-          <div>
-            <input type="checkbox" v-model="oneTask.isCompleted" @change="storeTask.updateLocalStorage"/>
-          </div>
+          <input type="checkbox" v-model="oneTask.isCompleted" @change="storeTask.updateLocalStorage"/>
           <div>
             {{
               oneTask.date.toLocaleString('default', {
@@ -32,7 +30,7 @@ const storeTask = useTasksStore();
 <style scoped>
 .taskContainer {
   display: grid;
-  grid-template-columns: 1fr 3fr 4fr;
+  grid-template-columns: 1.5fr 3fr 4fr;
 }
 .main-container {
   max-width: 30rem;
