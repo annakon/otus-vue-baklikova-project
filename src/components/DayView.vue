@@ -29,7 +29,7 @@ const shortdate = date.toLocaleString('default', {
   day: 'numeric'
 });
 const storeTask = useTasksStore();
-const taskDay = storeTask.findByDate(date);
+const taskDay = storeTask.findByDate(date).sort((a,b)=>new Date("December 17, 1995 "+a.time)-new Date("December 17, 1995 "+b.time));
 </script>
 
 <style scoped>
