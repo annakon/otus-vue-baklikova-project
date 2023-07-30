@@ -1,13 +1,13 @@
 <template>
   <div class="main-container">
     <div class="form-check plusmargin">
-      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+      <input class="form-check-input" type="checkbox" id="flexCheckDefault" v-model="storeTask.filter">
       <label class="form-check-label" for="flexCheckDefault">
         только неисполненные
       </label>
     </div>
     <ul class="list-group">
-      <li class="list-group-item" v-for="oneTask in storeTask.tasks">
+      <li class="list-group-item" v-for="oneTask in storeTask.todosToShow()">
         <div class="taskContainer">
           <input type="checkbox" v-model="oneTask.isCompleted" @change="storeTask.updateLocalStorage"/>
           <div>
