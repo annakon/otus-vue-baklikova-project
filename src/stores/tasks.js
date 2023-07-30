@@ -3,7 +3,7 @@ import { defineStore } from 'pinia';
 
 export const useTasksStore = defineStore('task', () => {
   const tasks = reactive([]);
-  const filter = ref('true')
+  const filter = ref(false)
   function todosToShow() {
     return filter.value? tasks.filter(t => !t.isCompleted) : tasks;
   }
