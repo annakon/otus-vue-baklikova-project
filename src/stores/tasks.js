@@ -5,6 +5,7 @@ export const useTasksStore = defineStore('task', () => {
   const tasks = reactive([]);
   const filter = ref(false)
   function todosToShow() {
+    tasks.sort((a,b)=>new Date(a.date.toDateString()+" "+a.time)-new Date(b.date.toDateString()+" "+b.time));
     return filter.value? tasks.filter(t => !t.isCompleted) : tasks;
   }
 
