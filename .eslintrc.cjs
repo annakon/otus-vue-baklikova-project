@@ -12,6 +12,5 @@ module.exports = {
     ecmaVersion: 'latest'
   },
   rules: {
-    "vue/require-v-for-key": "off",
   },
 }

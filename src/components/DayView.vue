@@ -4,7 +4,7 @@
       <h5 class="card-title">{{ shortdate }}</h5>
     </div>
     <ul class="list-group list-group-flush">
-      <li class="list-group-item" v-for="oneTask in taskDay">
+      <li class="list-group-item" v-for="(oneTask,index) in taskDay" :key="index">
         <div class="taskContainer">
             <input type="checkbox" v-model="oneTask.isCompleted" @change="storeTask.updateLocalStorage"/>
           <div>{{ oneTask.time }}</div>

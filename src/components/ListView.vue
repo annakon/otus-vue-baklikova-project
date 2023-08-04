@@ -7,7 +7,7 @@
       </label>
     </div>
     <ul class="list-group">
-      <li class="list-group-item" v-for="oneTask in storeTask.todosToShow()">
+      <li class="list-group-item" v-for="(oneTask,index) in storeTask.todosToShow()" :key="index">
         <div class="taskContainer">
           <input type="checkbox" v-model="oneTask.isCompleted" @change="storeTask.updateLocalStorage"/>
           <div>
