@@ -1,14 +1,19 @@
-import { reactive } from 'vue';
+import {reactive, ref} from 'vue';
 import { defineStore } from 'pinia';
 
 export const useTasksStore = defineStore('task', () => {
   const tasks = reactive([]);
+  const filter = ref(false)
+  function todosToShow() {
+    tasks.sort((a,b)=>new Date(a.date.toDateString()+" "+a.time)-new Date(b.date.toDateString()+" "+b.time));
+    return filter.value? tasks.filter(t => !t.isCompleted) : tasks;
+  }
 
   function updateLocalStorage() {
     localStorage.setItem('tasks', JSON.stringify(tasks));
   }
 
-  function updateCartFromLocalStorage() {
+  function updateTasksFromLocalStorage() {
     const localTasks = localStorage.getItem('tasks')
     if (localTasks) {
       tasks.push(...JSON.parse(localTasks));
@@ -25,5 +30,5 @@ export const useTasksStore = defineStore('task', () => {
     return tasks.filter((i) => i.date.toDateString() === date.toDateString());
   }
 
-  return { tasks, addToTasks, findByDate, updateCartFromLocalStorage };
+  return { tasks, filter, addToTasks, findByDate, updateCartFromLocalStorage: updateTasksFromLocalStorage, updateLocalStorage, todosToShow };
 });

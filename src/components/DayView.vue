@@ -4,8 +4,9 @@
       <h5 class="card-title">{{ shortdate }}</h5>
     </div>
     <ul class="list-group list-group-flush">
-      <li class="list-group-item" v-for="oneTask in taskDay">
+      <li class="list-group-item" v-for="(oneTask,index) in taskDay" :key="index">
         <div class="taskContainer">
+            <input type="checkbox" v-model="oneTask.isCompleted" @change="storeTask.updateLocalStorage"/>
           <div>{{ oneTask.time }}</div>
           <div>{{ oneTask.description }}</div>
         </div>
@@ -28,7 +29,7 @@ const shortdate = date.toLocaleString('default', {
   day: 'numeric'
 });
 const storeTask = useTasksStore();
-const taskDay = storeTask.findByDate(date);
+const taskDay = storeTask.findByDate(date).sort((a,b)=>new Date("December 17, 1995 "+a.time)-new Date("December 17, 1995 "+b.time));
 </script>
 
 <style scoped>
@@ -42,6 +43,6 @@ h5 {
 }
 .taskContainer {
   display: grid;
-  grid-template-columns: 1fr 3fr;
+  grid-template-columns: 1fr 1fr 3fr;
 }
 </style>
