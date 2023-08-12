@@ -8,6 +8,7 @@
     "preview": "vite preview",
     "test:unit": "vitest",
     "lint": "eslint --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
+    "lint:fix": "prettier --write . && eslint . --fix src --ext .js,.ts",
     "format": "prettier --write src",
     "prepare": "husky install"
   },
