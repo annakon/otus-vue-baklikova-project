@@ -1,11 +1,17 @@
-import { describe, it, expect } from 'vitest';
+import {describe, it, expect, vi} from 'vitest';
 
-import { mount } from '@vue/test-utils';
-import HelloWorld from '../HomeView.vue';
+import { shallowMount} from '@vue/test-utils';
+import HomeView from "@/components/HomeView.vue";
+import {createPinia, setActivePinia} from "pinia";
 
+vi.mock('vue-router')
 describe('Home', () => {
   it('renders properly', () => {
-    const wrapper = mount(HelloWorld);
-    expect(wrapper.text()).toContain('home');
+    setActivePinia(createPinia())
+    const wrapper = shallowMount(HomeView,{
+      global: {
+        stubs: ['RouterLink'],
+      },});
+    expect(wrapper.text()).toContain((new Date()).getFullYear());
   });
 });
