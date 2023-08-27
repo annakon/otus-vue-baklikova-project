@@ -36,6 +36,10 @@ export const useTasksStore = defineStore('task', () => {
     updateLocalStorage();
   }
 
+  function completeOne (index) {
+    tasks[index].isCompleted = true;
+  }
+
   function findByDate(date) {
     const  res=reactive([]);
     for (let i=0; i < tasks.length; i++) {
@@ -46,5 +50,5 @@ export const useTasksStore = defineStore('task', () => {
     return res;
   }
 
-  return { tasks, filter, update, addToTasks, findByDate, removeItem, updateCartFromLocalStorage: updateTasksFromLocalStorage, updateLocalStorage, todosToShow };
+  return { tasks, filter,completeOne, update, addToTasks, findByDate, removeItem, updateCartFromLocalStorage: updateTasksFromLocalStorage, updateLocalStorage, todosToShow };
 });

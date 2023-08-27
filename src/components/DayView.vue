@@ -6,7 +6,7 @@
     <ul class="list-group list-group-flush">
       <li class="list-group-item" v-for="(oneTask,index) in taskDay" :key="index">
         <div class="taskContainer">
-            <input type="checkbox" v-model="oneTask.isCompleted" @change="storeTask.updateLocalStorage"/>
+            <input type="checkbox" v-model="oneTask.isCompleted" @change="()=>{storeTask.completeOne(oneTask.index);storeTask.updateLocalStorage();}"/>
           <div>{{ oneTask.time }}</div>
           <div>{{ oneTask.description }}</div>
           <router-link class="remove" :to="{ name: 'add', params: {  day: date, time: oneTask.time, desc: oneTask.description, index: oneTask.index } }">&#10001;</router-link>
