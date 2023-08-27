@@ -1,0 +1,19 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Home > renders all 1`] = `
+"<form data-v-943c0c07=\\"\\" data=\\"Sun Jan 08 2023 00:00:00 GMT+0300 (Москва, стандартное время)\\">
+  <div data-v-943c0c07=\\"\\" class=\\"mb-3\\"><label data-v-943c0c07=\\"\\" for=\\"date\\" class=\\"form-label\\">Дата</label><input data-v-943c0c07=\\"\\" type=\\"date\\" class=\\"form-control\\" id=\\"date\\"></div>
+  <div data-v-943c0c07=\\"\\" class=\\"mb-3\\"><label data-v-943c0c07=\\"\\" class=\\"form-label\\" for=\\"appt\\">Время</label><input data-v-943c0c07=\\"\\" class=\\"form-control\\" type=\\"time\\" id=\\"appt\\"></div>
+  <div data-v-943c0c07=\\"\\" class=\\"mb-3\\"><label data-v-943c0c07=\\"\\" for=\\"description\\" class=\\"form-label\\">Описание</label><textarea data-v-943c0c07=\\"\\" class=\\"form-control\\" id=\\"description\\" rows=\\"3\\"></textarea></div>
+  <div data-v-943c0c07=\\"\\" class=\\"mb-3\\"><button data-v-943c0c07=\\"\\" class=\\"btn btn-primary\\" type=\\"button\\">Добавить</button></div>
+</form>"
+`;
+
+exports[`addTask > renders all 1`] = `
+"<form data-v-943c0c07=\\"\\" data=\\"Sun Jan 08 2023 00:00:00 GMT+0300 (Москва, стандартное время)\\">
+  <div data-v-943c0c07=\\"\\" class=\\"mb-3\\"><label data-v-943c0c07=\\"\\" for=\\"date\\" class=\\"form-label\\">Дата</label><input data-v-943c0c07=\\"\\" type=\\"date\\" class=\\"form-control\\" id=\\"date\\"></div>
+  <div data-v-943c0c07=\\"\\" class=\\"mb-3\\"><label data-v-943c0c07=\\"\\" class=\\"form-label\\" for=\\"appt\\">Время</label><input data-v-943c0c07=\\"\\" class=\\"form-control\\" type=\\"time\\" id=\\"appt\\"></div>
+  <div data-v-943c0c07=\\"\\" class=\\"mb-3\\"><label data-v-943c0c07=\\"\\" for=\\"description\\" class=\\"form-label\\">Описание</label><textarea data-v-943c0c07=\\"\\" class=\\"form-control\\" id=\\"description\\" rows=\\"3\\"></textarea></div>
+  <div data-v-943c0c07=\\"\\" class=\\"mb-3\\"><button data-v-943c0c07=\\"\\" class=\\"btn btn-primary\\" type=\\"button\\">Добавить</button></div>
+</form>"
+`;

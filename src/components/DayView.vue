@@ -6,13 +6,18 @@
     <ul class="list-group list-group-flush">
       <li class="list-group-item" v-for="(oneTask,index) in taskDay" :key="index">
         <div class="taskContainer">
-            <input type="checkbox" v-model="oneTask.isCompleted" @change="storeTask.updateLocalStorage"/>
+            <input type="checkbox" v-model="oneTask.isCompleted" @change="()=>{storeTask.completeOne(oneTask.index);storeTask.updateLocalStorage();}"/>
           <div>{{ oneTask.time }}</div>
           <div>{{ oneTask.description }}</div>
+          <router-link class="remove" :to="{ name: 'add', params: {  day: date, time: oneTask.time, desc: oneTask.description, index: oneTask.index } }">&#10001;</router-link>
+          <span
+              class="remove"
+              @click="() => {taskDay.splice(index,1);storeTask.removeItem(oneTask)}"
+          >&times;</span>
         </div>
       </li>
     </ul>
-    <router-link :to="{ name: 'add', params: { day: date } }" class="btn btn-primary">
+    <router-link :to="{ name: 'add', params: { day: date, time: '18:00', index: -1} }" class="btn btn-primary">
       Добавить задачу
     </router-link>
   </div>
@@ -43,6 +48,14 @@ h5 {
 }
 .taskContainer {
   display: grid;
-  grid-template-columns: 1fr 1fr 3fr;
+  grid-template-columns: 1fr 1fr 3fr 1fr 1fr;
+}
+.remove {
+  cursor: pointer;
+  text-align: right;
+}
+a.remove {
+  text-decoration: none;
+  color: black;
 }
 </style>

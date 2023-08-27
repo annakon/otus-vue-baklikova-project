@@ -2,7 +2,7 @@
   <form>
     <div class="mb-3">
       <label for="date" class="form-label">Дата</label>
-      <input type="date" class="form-control" id="date" v-model="day" />
+      <input type="date" class="form-control" id="date" v-model="dayShow" />
     </div>
     <div class="mb-3">
       <label class="form-label" for="appt">Время</label>
@@ -13,7 +13,12 @@
       <textarea class="form-control" id="description" rows="3" v-model="description"></textarea>
     </div>
     <div class="mb-3">
-      <button @click="addTask" class="btn btn-primary" type="button">Добавить</button>
+      <div v-if="props.index==='-1'">
+        <button @click="addTask" class="btn btn-primary" type="button">Добавить</button>
+      </div>
+      <div v-else>
+        <button @click="addTask" class="btn btn-primary" type="button">Изменить</button>
+      </div>
     </div>
   </form>
 </template>
@@ -30,18 +35,19 @@ function addZero(num) {
   }
 }
 
-const props = defineProps(['day']);
+const props = defineProps(['day','time', 'index', 'desc']);
 const data = new Date(props.day);
-const day = ref(
+const dayShow = ref(
   addZero(data.getFullYear()) + '-' + addZero(data.getMonth() + 1) + '-' + addZero(data.getDate())
 );
-const time = ref('18:00');
-const description = ref('');
+const time = ref(props.time);
+const description = ref(props.desc);
 const storeTask = useTasksStore();
 const router = useRouter();
 function addTask() {
-  let date = new Date(day.value);
-  storeTask.addToTasks(date, time.value, description.value);
+  let date = new Date(dayShow.value);
+  if (props.index === "-1"){ storeTask.addToTasks(date, time.value, description.value);}
+  else {storeTask.update(date, time.value, description.value, props.index);}
   router.push({
     name: 'day',
     params: { day: date.getDate(), month: date.getMonth(), year: date.getFullYear() }
