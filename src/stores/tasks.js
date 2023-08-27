@@ -13,6 +13,11 @@ export const useTasksStore = defineStore('task', () => {
     localStorage.setItem('tasks', JSON.stringify(tasks));
   }
 
+  function removeItem(item) {
+    tasks.splice(item.index,1);
+    updateLocalStorage();
+  }
+
   function updateTasksFromLocalStorage() {
     const localTasks = localStorage.getItem('tasks')
     if (localTasks) {
@@ -27,8 +32,14 @@ export const useTasksStore = defineStore('task', () => {
   }
 
   function findByDate(date) {
-    return tasks.filter((i) => i.date.toDateString() === date.toDateString());
+    const  res=reactive([]);
+    for (let i=0; i < tasks.length; i++) {
+      if (tasks[i].date.toDateString() === date.toDateString()){
+          res.push({...tasks[i],index: i})
+      }
+    }
+    return res;
   }
 
-  return { tasks, filter, addToTasks, findByDate, updateCartFromLocalStorage: updateTasksFromLocalStorage, updateLocalStorage, todosToShow };
+  return { tasks, filter, addToTasks, findByDate, removeItem, updateCartFromLocalStorage: updateTasksFromLocalStorage, updateLocalStorage, todosToShow };
 });

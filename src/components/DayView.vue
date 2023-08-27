@@ -9,6 +9,10 @@
             <input type="checkbox" v-model="oneTask.isCompleted" @change="storeTask.updateLocalStorage"/>
           <div>{{ oneTask.time }}</div>
           <div>{{ oneTask.description }}</div>
+          <span
+              class="remove"
+              @click="() => {taskDay.splice(index,1);storeTask.removeItem(oneTask)}"
+          >&times;</span>
         </div>
       </li>
     </ul>
@@ -43,6 +47,10 @@ h5 {
 }
 .taskContainer {
   display: grid;
-  grid-template-columns: 1fr 1fr 3fr;
+  grid-template-columns: 1fr 1fr 3fr 1fr;
+}
+.remove {
+  cursor: pointer;
+  text-align: right;
 }
 </style>
