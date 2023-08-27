@@ -27,7 +27,12 @@ export const useTasksStore = defineStore('task', () => {
   }
 
   function addToTasks(date, time, description) {
-    tasks.push({ date, time, description });
+    tasks.push({ date, time, description});
+    updateLocalStorage();
+  }
+
+  function update(date, time, description, index) {
+    tasks[index]={ date, time, description, index};
     updateLocalStorage();
   }
 
@@ -41,5 +46,5 @@ export const useTasksStore = defineStore('task', () => {
     return res;
   }
 
-  return { tasks, filter, addToTasks, findByDate, removeItem, updateCartFromLocalStorage: updateTasksFromLocalStorage, updateLocalStorage, todosToShow };
+  return { tasks, filter, update, addToTasks, findByDate, removeItem, updateCartFromLocalStorage: updateTasksFromLocalStorage, updateLocalStorage, todosToShow };
 });

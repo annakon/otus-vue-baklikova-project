@@ -24,7 +24,7 @@ const router = createRouter({
       component: DayView
     },
     {
-      path: '/add/:day',
+      path: '/add/:day/:time/:index/:desc?',
       name: 'add',
       props: true,
       component: addTask
